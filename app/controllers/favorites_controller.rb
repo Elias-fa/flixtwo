@@ -15,12 +15,12 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find(params[:id])
     favorite.destroy
 
-    redirect_to @movie
+    redirect_to @post
   end
 
 private
 
-  def set_movie
+  def set_post
     @movie = Movie.find_by!(slug: params[:movie_id])
   end
 end

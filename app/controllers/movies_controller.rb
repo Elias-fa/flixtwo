@@ -8,22 +8,22 @@ class MoviesController < ApplicationController
   end
    
   def show 
-     @fans = @movie.fans
-     @genres = @movie.genres
-     if current_user
-       @favorite = current_user.favorites.find_by(movie_id: @movie.id)
-      end
+    @fans = @movie.fans
+    @genres = @movie.genres
+    if current_user
+      @favorite = current_user.favorites.find_by(movie_id: @movie.id)
+    end
   end
 
   def edit
   end
 
   def update
-       if @movie.update(movie_params) 
-           redirect_to @movie, notice: "Movie successfully updated!" #rendered by the layout file application.html.erb via the _flash partial
-       else
-           render :edit
-       end
+    if @movie.update(movie_params) 
+      redirect_to @movie, notice: "Movie successfully updated!" #rendered by the layout file application.html.erb via the _flash partial
+   else
+      render :edit
+    end
   end
 
   def new
